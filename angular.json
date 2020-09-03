@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AirbnbUI"
+    }
+  },
+  "defaultProject": "AirbnbUI",
+  "cli": {
+    "analytics": false
+  }
 }

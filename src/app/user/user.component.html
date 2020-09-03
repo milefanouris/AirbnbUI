@@ -1,0 +1,103 @@
+<div class="main-register-wrap modal">
+  <div class="main-overlay"></div>
+  <div class="main-register-holder">
+    <div class="main-register fl-wrap">
+      <div class="close-reg"><i class="fa fa-times"></i></div>
+      <h3>Sign In <span>City<strong>Book</strong></span></h3>
+      <div id="tabs-container">
+        <ul class="tabs-menu">
+          <li class="current"><a href="#tab-1">Login</a></li>
+          <li><a href="#tab-2">Register</a></li>
+        </ul>
+        <div class="tab">
+          <div id="tab-1" class="tab-content">
+            <div class="custom-form">
+              <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                  </button>
+                  <a routerLink="/register" class="btn btn-link">Register</a>
+                </div>
+              </form>
+<!--              <form name="registerform" (ngSubmit)="onLogin()">-->
+<!--                <label>Username or Email Address * </label>-->
+<!--                <input name="email" type="text" value="">-->
+<!--                <label>Password * </label>-->
+<!--                <input name="password" type="password"  value="">-->
+<!--                <button type="submit" class="log-submit-btn"><span>Log In</span></button>-->
+<!--                <div class="clearfix"></div>-->
+<!--                <div class="filter-tags">-->
+<!--                  <input id="check-a" type="checkbox" name="check">-->
+<!--                  <label for="check-a">Remember me</label>-->
+<!--                </div>-->
+<!--              </form>-->
+              <div class="lost_password">
+                <a href="#">Lost Your Password?</a>
+              </div>
+            </div>
+          </div>
+          <div class="tab">
+            <div id="tab-2" class="tab-content">
+              <div class="custom-form">
+                <form method="post" name="registerform" class="main-register-form" id="main-register-form2">
+                  <label>First Name * </label>
+                  <input name="name" type="text" onClick="this.select()" value="">
+                  <label>Second Name *</label>
+                  <input name="name2" type="text" onClick="this.select()" value="">
+                  <label>Username *</label>
+                  <input name="username" type="text" onclick="this.select()" value="">
+                  <label>Email Address *</label>
+                  <input name="email" type="text" onClick="this.select()" value="">
+                  <label>Password *</label>
+                  <input name="password" type="password" onClick="this.select()" value="">
+                  <label>Verify Password *</label>
+                  <input name="password" type="password" onclick="this.select()" value="">
+                  <label>Phone Number *</label>
+                  <input name="phonenumber" type="text" onclick="this.select()" value="">
+                  <!--<label>Desired Role *</label>
+                  <div class="header-search-select-item">
+                      <select data-placeholder="Desired Roles" class="chosen-select" >
+                          <input name="name" type="text"   onClick="this.select()" value="">
+                          <option>----</option>
+                          <option>Admin</option>
+                          <option>Tenant</option>
+                          <option>Renter</option>
+                          <option>Guest</option>
+                      </select>
+                  </div> -->
+                  <label for="roles">Choose a role:</label>
+                  <select id="role" name="role">
+                    <option value="admin">Admin</option>
+                    <option value="tenant">Tenant</option>
+                    <option value="renter">Renter</option>
+                    <option value="guest">Guest</option>
+                  </select>
+                  <input type="submit">
+                  <br>
+                  <br>
+                  <button type="submit" class="log-submit-btn"><span>Register</span></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

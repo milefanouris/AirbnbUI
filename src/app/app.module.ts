@@ -7,6 +7,8 @@ import { ListingsComponent } from './listings/listings.component';
 import {AppRoutingModule} from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { UserComponent } from './user/user.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ListingsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    UserComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
