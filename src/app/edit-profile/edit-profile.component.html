@@ -1,0 +1,92 @@
+<!-- loader -->
+<div class="loader-wrap">
+  <div class="pin"></div>
+  <div class="pulse"></div>
+</div>
+<!--  loader end -->
+<!-- Main   -->
+<div id="main">
+  <!-- wrapper -->
+  <div id="wrapper">
+    <!--content -->
+    <div class="content">
+      <!--section -->
+      <section>
+        <!-- container -->
+        <div class="container">
+          <!-- profile-edit-wrap -->
+          <div class="profile-edit-wrap">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="fixed-bar fl-wrap">
+                  <div class="user-profile-menu-wrap fl-wrap">
+                    <!-- user-profile-menu-->
+                    <div class="user-profile-menu">
+                      <h3>Main</h3>
+                      <ul>
+                        <li><a href="dashboard.html"><i class="fa fa-gears"></i>Dashboard</a></li>
+                        <li><a href="dashboard-myprofile.html" class="user-profile-act"><i class="fa fa-user-o"></i> Edit profile</a></li>
+                        <li><a href="dashboard-messages.html"><i class="fa fa-envelope-o"></i> Messages <span>3</span></a></li>
+                        <li><a href="dashboard-password.html"><i class="fa fa-unlock-alt"></i>Change Password</a></li>
+                      </ul>
+                    </div>
+                    <!-- user-profile-menu end-->
+                    <!-- user-profile-menu-->
+                    <div class="user-profile-menu">
+                      <h3>Listings</h3>
+                      <ul>
+                        <li><a href="dashboard-listing-table.html"><i class="fa fa-th-list"></i> My listigs  </a></li>
+                        <li><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Bookings</a></li>
+                        <li><a href="dashboard-review.html"><i class="fa fa-comments-o"></i> Reviews </a></li>
+                      </ul>
+                    </div>
+                    <!-- user-profile-menu end-->
+                    <a href="#" class="log-out-btn">Log Out</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <!-- profile-edit-container-->
+                <div class="profile-edit-container">
+                  <div class="profile-edit-header fl-wrap">
+                    <h4>My Account</h4>
+                  </div>
+                  <div class="custom-form">
+                    <label>Firstname <i class="fa fa-user-o"></i></label>
+                    <input #name type="text" [placeholder]=firstname value=""/>
+                    <label>Lastname <i class="fa fa-user-o"></i></label>
+                    <input #surname type="text" [placeholder]=lastname value=""/>
+                    <label>Email Address<i class="fa fa-envelope-o"></i>  </label>
+                    <input #mail type="text" [placeholder]=email value=""/>
+                    <label>Phone<i class="fa fa-phone"></i>  </label>
+                    <input #number type="text" [placeholder]=phoneNumber value=""/>
+                  </div>
+                </div>
+                <!-- profile-edit-container end-->
+                <div class="profile-edit-container">
+                  <div class="custom-form">
+                    <button class="btn  big-btn  color-bg flat-btn" (click)="updateProfile()">Save Changes<i class="fa fa-angle-right"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="edit-profile-photo fl-wrap">
+                  <img src="assets/images/avatar/1.jpg" class="respimg" alt="">
+                  <div class="change-photo-btn">
+                    <div class="photoUpload">
+                      <span><i class="fa fa-upload"></i> Upload Photo</span>
+                      <input type="file" class="upload">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--profile-edit-wrap end -->
+        </div>
+        <!--container end -->
+      </section>
+      <!-- section end -->
+      <div class="limit-box fl-wrap"></div>
+    </div>
+  </div>

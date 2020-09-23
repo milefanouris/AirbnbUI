@@ -1,0 +1,9 @@
+.login_btn {
+  width: 100%;
+  background: dodgerblue !important;
+  color: white !important;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}

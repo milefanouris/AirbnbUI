@@ -1,12 +1,11 @@
 <!--loader-->
-<div class="loader-wrap">
+<div class="loader-wrap" #loaderWrap>
   <div class="pin"></div>
   <div class="pulse"></div>
 </div>
 <!--loader end-->
 <!-- Main  -->
 <div id="main">
-  <app-header></app-header>
   <!--  wrapper  -->
   <div id="wrapper">
     <!-- Content-->
@@ -15,40 +14,110 @@
       <section class="scroll-con-sec hero-section" data-scrollax-parent="true" id="sec1">
         <div class="bg" data-bg="assets/images/bg/sky.jpg" data-scrollax="properties: { translateY: '200px' }"></div>
         <div class="overlay"></div>
-        <div class="hero-section-wrap fl-wrap">
+        <div class="parallax home-slide">
           <div class="container">
-            <div class="intro-item fl-wrap">
-              <h2>Welcome!</h2>
-              <h3>Find great places to stay.</h3>
-            </div>
-            <div class="main-search-input-wrap">
-              <div class="main-search-input fl-wrap">
-                <div class="main-search-input-item">
-                  <input data-theme="my-style" type="text" placeholder="What are you looking for?" value=""/>
-                </div>
-                <div class="main-search-input-item location" id="autocomplete-container">
-                  <input data-theme="my-style" type="text" placeholder="Location" id="autocomplete-input" value=""/>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="search-container">
+                  <!-- Form -->
+                  <h2 style="font-family: sans-serif;">Find New Home </h2>
+                  <!-- Row With Forms -->
+                  <div class="row with-forms">
+                    <!-- Main Search Input -->
+                    <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 10px;">
+                      <div class="main-search-input">
+                        <input class="form-control" type="text" name="search_addr" required="" #search_addr
+                               placeholder="Enter address e.g. street, city or state" value="" autocomplete="off">
+                      </div>
+                    </div>
 
-                </div>
-                <div>
-                  <input data-theme="my-style" type="date" placeholder="Arrival date" value=""/>
-                </div>
-                <div>
-                  <input data-theme="my-style" type="date" placeholder="Departure date" value=""/>
+                    <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 10px;">
+                      <div class="main-search-input">
+                        <input class="form-control" type="number" name="visitors" required="" #visitors
+                               placeholder="Number of visitors" value="" class="pac-target-input" autocomplete="off">
+                      </div>
+                    </div>
 
+                    <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 10px;">
+                      <div class="main-search-input">
+                        <input class="form-control" type="text" name="from_date" [(ngModel)]="arrivalDate"
+                               bsDatepicker placeholder="Check in" #from_date>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6" style="margin-top: 10px;">
+                      <div class="main-search-input">
+                        <input class="form-control" type="text" name="to_date" [(ngModel)]="departureDate"
+                               bsDatepicker placeholder="Check out" #to_date>
+                      </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-12 col-xs-12" style="margin-top: 10px;">
+                      <button class="button" style="height: 58px;width: 150px;" id="search" (click)="search($event)">
+                        <i class="fa fa-search">&nbsp;SEARCH</i>
+                      </button>
+                    </div>
+                  </div>
+
+
+                  <!-- Row With Forms / End -->
+                  <!-- Browse Jobs -->
+                  <div class="adv-search-btn">
+
+                  </div>
+                  <!-- Announce -->
+                  <div class="announce">
+
+                  </div>
                 </div>
-                <div class="main-search-input-item">
-                  <select data-placeholder="All Categories" class="chosen-select">
-                    <option>Rooms</option>
-                  </select>
-                </div>
-                <button class="main-search-button" onclick="window.location.href='listings-half-screen-map-list.html'">
-                  Search
-                </button>
               </div>
             </div>
           </div>
         </div>
+        <!--        <div class="hero-section-wrap fl-wrap">-->
+        <!--          <div class="container">-->
+        <!--            <div class="intro-item fl-wrap">-->
+        <!--              <h2>Welcome!</h2>-->
+        <!--              <h3>Find great places to stay.</h3>-->
+        <!--            </div>-->
+        <!--            <div class="main-search-input-wrap">-->
+        <!--              <div class="main-search-input fl-wrap">-->
+        <!--                <div class="col-md-4 col-sm-6 col-xs-12" style="margin-top: 10px;">-->
+        <!--                  <div class="main-search-input">-->
+        <!--                    <input type="text" name="search_addr" required="" id="pac-input" placeholder="Enter address e.g. street, city or state" value="" class="pac-target-input" autocomplete="off">-->
+        <!--                  </div>-->
+        <!--                </div>-->
+
+        <!--                <div class="col-md-2 col-sm-6 col-xs-6" style="margin-top: 10px;">-->
+        <!--                  <div class="main-search-input">-->
+        <!--                    <input type="text" name="from_date" onchange="set_to_date();" placeholder="Check in" value="" id="from_date">-->
+        <!--                  </div>-->
+        <!--                </div>-->
+
+        <!--                <div class="col-md-2 col-sm-6 col-xs-6" style="margin-top: 10px;">-->
+        <!--                  <div class="main-search-input">-->
+        <!--                    <input name="to_date" type="text" onchange="check_to_date();" placeholder="Check out" value="" id="to_date">-->
+
+        <!--                  </div>-->
+        <!--                </div>-->
+        <!--&lt;!&ndash;                <div class="main-search-input-item location" id="autocomplete-container">&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <input data-theme="my-style" type="text" placeholder="Location" id="autocomplete-input" value=""/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--&lt;!&ndash;                <div class="main-search-input-item location" id="autocomplete-location">&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <input data-theme="my-style" type="text" placeholder="#People" id="autocomplete-input-location" value=""/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--&lt;!&ndash;                <div class="form-group">&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <label for="arrivalDate">Arrival Date</label>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <input type="arrivalDate" formControlName="arrivalDate" class="form-control"&ndash;&gt;-->
+        <!--&lt;!&ndash;                         [(ngModel)]="arrivalDate" type="date"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </div>&ndash;&gt;-->
+        <!--                <button class="main-search-button" onclick="window.location.href='add-listings-half-screen-map-list.html'">-->
+        <!--                  Search-->
+        <!--                </button>-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
         <div class="bubble-bg"></div>
         <div class="header-sec-link">
           <div class="container"><a href="#sec2" class="custom-scroll-link">Let's Start</a></div>
@@ -81,7 +150,8 @@
                   </div>
                   <div class="geodir-category-content fl-wrap">
                     <a class="listing-geodir-category" href="listing.html">Retail</a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg"
+                                                                                  alt=""></a>
                       <span class="avatar-tooltip">Added By  <strong>Lisa Smith</strong></span>
                     </div>
                     <h3><a href="listing-single.html">Event in City Mol</a></h3>
@@ -112,7 +182,8 @@
                   </div>
                   <div class="geodir-category-content fl-wrap">
                     <a class="listing-geodir-category" href="listing.html">Event</a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg"
+                                                                                  alt=""></a>
                       <span class="avatar-tooltip">Added By  <strong>Mark Rose</strong></span>
                     </div>
                     <h3><a href="listing-single.html">Cafe "Lollipop"</a></h3>
@@ -143,7 +214,8 @@
                   </div>
                   <div class="geodir-category-content fl-wrap">
                     <a class="listing-geodir-category" href="listing.html">Gym </a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg"
+                                                                                  alt=""></a>
                       <span class="avatar-tooltip">Added By  <strong>Nasty Wood</strong></span>
                     </div>
                     <h3><a href="listing-single.html">Gym In Brooklyn</a></h3>
@@ -174,7 +246,8 @@
                   </div>
                   <div class="geodir-category-content fl-wrap">
                     <a class="listing-geodir-category" href="listing.html">Shops</a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg"
+                                                                                  alt=""></a>
                       <span class="avatar-tooltip">Added By  <strong>Nasty Wood</strong></span>
                     </div>
                     <h3><a href="listing-single.html">Shop in Boutique Zone</a></h3>
@@ -205,7 +278,8 @@
                   </div>
                   <div class="geodir-category-content fl-wrap">
                     <a class="listing-geodir-category" href="listing.html">Cars</a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg"
+                                                                                  alt=""></a>
                       <span class="avatar-tooltip">Added By  <strong>Kliff Antony</strong></span>
                     </div>
                     <h3><a href="listing-single.html">Best deal For the Cars</a></h3>
@@ -236,7 +310,8 @@
                   </div>
                   <div class="geodir-category-content fl-wrap">
                     <a class="listing-geodir-category" href="listing.html">Restourants</a>
-                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                    <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg"
+                                                                                  alt=""></a>
                       <span class="avatar-tooltip">Added By  <strong>Adam Koncy</strong></span>
                     </div>
                     <h3><a href="listing-single.html">Luxury Restourant</a></h3>
@@ -267,12 +342,7 @@
     <!-- Content end -->
   </div>
   <!-- wrapper end -->
-  <!--footer -->
-  <app-footer></app-footer>
-  <!--footer end  -->
-  <!--register form -->
-  <app-user></app-user>
-  <!--register form end -->
+
   <a class="to-top"><i class="fa fa-angle-up"></i></a>
 </div>
 <!-- Main end -->

@@ -1,11 +1,28 @@
-<!-- header-->
 <header class="main-header dark-header fs-header sticky">
   <div class="header-inner">
     <div class="logo-holder">
       <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
     </div>
     <a href="/add-listing" class="add-list">Add Listing <span><i class="fa fa-plus"></i></span></a>
-    <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Sign In</div>
+    <div *ngIf="isShown" class="header-user-menu">
+      <div class="header-user-name">
+        <span><img src="assets/images/avatar/1.jpg" alt=""></span>
+        Hello , {{username}}
+      </div>
+      <ul>
+        <li><a href="/editProfile"> Edit profile</a></li>
+        <li><a href="dashboard-bookings.html"> Bookings </a></li>
+        <li><a href="dashboard-review.html"> Reviews </a></li>
+        <li><a href="#">Log Out</a></li>
+      </ul>
+    </div>
+
+    <a *ngIf="!isShown" id="signInButton" href="/signIn" class="show-reg-form">Sign In
+      <span>
+        <i class="fa fa-sign-in">
+        </i>
+      </span>
+    </a>
     <!-- nav-button-wrap-->
     <div class="nav-button-wrap color-bg">
       <div class="nav-button">
@@ -14,4 +31,3 @@
     </div>
   </div>
 </header>
-<!--  header end -->

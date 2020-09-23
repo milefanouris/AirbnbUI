@@ -1,6 +1,6 @@
 {
-  "/airbnb-server/*": {
-    "target": "https://localhost:8080",
+  "/airbnb-service/*": {
+    "target": "http://localhost:8080",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
