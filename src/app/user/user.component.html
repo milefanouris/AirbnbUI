@@ -10,14 +10,14 @@
       <div class="main-register-holder">
         <div class="main-register fl-wrap">
           <div class="close-reg"><i class="fa fa-times"></i></div>
-          <h3>Sign In <span>City<strong>Book</strong></span></h3>
+          <h3>Sign In</h3>
           <div id="tabs-container">
-            <ul class="tabs-menu">
-              <li class="active current"><a href="#tab-1">Login</a></li>
-              <li><a href="#tab-2">Register</a></li>
+            <ul class="nav nav-tabs">
+              <li><a data-toggle="tab" href="#tab-1">Login</a></li>
+              <li><a data-toggle="tab" href="#tab-2">Register</a></li>
             </ul>
-            <div class="tab">
-              <div id="tab-1" class="tab-content">
+            <div class="tab-content">
+              <div id="tab-1" class="tab-pane active">
                 <div class="custom-form">
                   <div class="col-md-12">
                     <label>Username</label>
@@ -33,7 +33,7 @@
                   <button type="button" name="button" class="btn login_btn" (click)="onLogin()">Login</button>
                 </div>
               </div>
-              <div id="tab-2" class="tab-content" style="display: none;">
+              <div id="tab-2" class="tab-pane">
                 <div class="custom-form">
                   <div class="col-md-12">
                     <label for="firstName">First Name</label>
@@ -50,6 +50,7 @@
                   <div class="col-md-12">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" #registerUsername/>
+<!--                    <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>-->
                   </div>
                   <div class="col-md-12">
                     <label for="password">Password</label>

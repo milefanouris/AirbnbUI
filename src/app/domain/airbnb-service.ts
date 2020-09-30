@@ -1,19 +1,21 @@
-// Generated using typescript-generator version 2.0.400 on 2020-09-04 19:12:46.
+/* tslint:disable */
+/* eslint-disable */
+// Generated using typescript-generator version 2.25.695 on 2020-09-25 13:32:27.
 
-export interface CommentDto {
+export class CommentDto {
   commentId: number;
   comment: string;
   grade: number;
   username: string;
 }
 
-export interface NewMessageDto {
+export class NewMessageDto {
   fromUser: string;
   toUser: string;
   messageText: string;
 }
 
-export interface AddCommentToResidenceDto {
+export class AddCommentToResidenceDto {
   residenceId: number;
   comment: string;
   grade: number;
@@ -21,6 +23,7 @@ export interface AddCommentToResidenceDto {
 }
 
 export class AddResidenceRequestDto {
+  id: string;
   address: string;
   geoX: number;
   geoY: number;
@@ -35,6 +38,11 @@ export class AddResidenceRequestDto {
   bedrooms: number;
   livingRoom: boolean;
   location: string;
+  wifi: number;
+  kitchen: number;
+  heating: number;
+  elevator: number;
+  parking: number;
   username: string;
   photoPaths: string[];
   title: string;
@@ -59,19 +67,25 @@ export class AddResidenceResponseDto {
   livingRoom: boolean;
   location: string;
   username: string;
+  title: string;
+  kitchen: number;
+  heating: number;
+  elevator: number;
+  parking: number;
+  wifi: number;
   photoPaths: string[];
   comments: CommentEntity[];
   reservationInfo: ReservationEntity[];
 }
 
-export interface ReservationDto {
+export class ReservationDto {
   username: string;
   residenceId: number;
   arrivalDate: Date;
   departureDate: Date;
 }
 
-export interface SearchResidenceByIdDto {
+export class SearchResidenceByIdDto {
   residenceId: number;
 }
 
@@ -81,9 +95,14 @@ export class SearchResidenceDto {
   arrivalDate: Date;
   departureDate: Date;
   capacity: number;
+  wifi: number;
+  kitchen: number;
+  heating: number;
+  parking: number;
+  elevator: number;
 }
 
-export interface SessionInfo {
+export class SessionInfo {
   username: string;
   date: Date;
 }
@@ -93,14 +112,14 @@ export class UserLogInRequestDto {
   password: string;
 }
 
-export interface UserLogInResponseDto {
+export class UserLogInResponseDto {
   username: string;
   authToken: string;
   roleDtos: RoleDto[];
   photo: string;
 }
 
-export interface UserProfileDto {
+export class UserProfileDto {
   name: string;
   surname: string;
   email: string;
@@ -122,7 +141,7 @@ export class UserRegisterRequestDto {
   roleDtos: RoleDto[];
 }
 
-export interface UserRegisterResponseDto {
+export class UserRegisterResponseDto {
   username: string;
   password: string;
   name: string;
@@ -149,18 +168,15 @@ export class UserUtilsDto {
   username: string;
 }
 
-export interface CommentEntity {
+export class CommentEntity {
   commentId: number;
   comment: string;
   grade: number;
 }
 
-export interface ReservationEntity extends Serializable {
+export class ReservationEntity {
   arrivalDate: Date;
   departureDate: Date;
 }
 
-export interface Serializable {
-}
-
-export type RoleDto = 'HOST' | 'TENANT';
+export type RoleDto = "HOST" | "TENANT";

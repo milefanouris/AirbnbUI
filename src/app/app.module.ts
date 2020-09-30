@@ -12,9 +12,13 @@ import {AddListingComponent} from './add-listing/add-listing.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {ShowListingsComponent} from './show-listings/show-listings.component';
-import {UserDashboardComponent} from './user-dashboard/user-dashboard.component';
 import {HeaderComponent} from './header/header.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import { SidenavBarComponent } from './sidenav-bar/sidenav-bar.component';
+import {Data} from './domain/Data';
+import { SingleListingComponent } from './single-listing/single-listing.component';
+import { SearchComponent } from './search/search.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,11 @@ import {EditProfileComponent} from './edit-profile/edit-profile.component';
     UserComponent,
     AddListingComponent,
     ShowListingsComponent,
-    UserDashboardComponent,
     HeaderComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    SidenavBarComponent,
+    SingleListingComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +42,9 @@ import {EditProfileComponent} from './edit-profile/edit-profile.component';
     FormsModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+    NgbModule
   ],
-  providers: [],
+  providers: [Data],
   bootstrap: [AppComponent]
 })
 export class AppModule {

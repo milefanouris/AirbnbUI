@@ -1,0 +1,111 @@
+<!--loader-->
+<div class="loader-wrap">
+  <div class="pin"></div>
+  <div class="pulse"></div>
+</div>
+<div id="main">
+  <!-- wrapper -->
+  <div id="wrapper">
+    <!--  content  -->
+    <div class="content">
+      <!--  section  -->
+      <section class="parallax-section" data-scrollax-parent="true">
+        <div class="bg par-elem "  data-bg="assets/images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+        <div class="overlay"></div>
+        <div class="header-sec-link">
+          <div class="container"><a href="#sec1" class="custom-scroll-link">Let's Start</a></div>
+        </div>
+      </section>
+      <!--  section  end-->
+      <!--  section  -->
+      <section class="gray-bg no-pading no-top-padding" id="sec1">
+        <div class="col-list-wrap  center-col-list-wrap left-list">
+          <div class="container">
+            <div class="listsearch-maiwrap box-inside fl-wrap">
+              <div class="listsearch-input-wrap fl-wrap">
+                <div class="listsearch-input-item">
+                  <i class="mbri-key single-i"></i>
+                  <input type="text" placeholder="Address" value="" #address/>
+                </div>
+                <div class="listsearch-input-item">
+                  <i class="mbri-key single-i"></i>
+                  <input type="text" placeholder="Visitors" value="" #visitors/>
+                </div>
+                <div class="listsearch-input-item">
+                  <i class="mbri-key single-i"></i>
+                  <input class="form-control" type="text" name="from_date" [(ngModel)]="arrivalDate"
+                         bsDatepicker placeholder="Check in" #from_date>
+                </div>
+                <div class="listsearch-input-item">
+                  <i class="mbri-key single-i"></i>
+                  <input class="form-control" type="text" name="to_date" [(ngModel)]="departureDate"
+                         bsDatepicker placeholder="Check out" #to_date>
+                </div>
+                <!-- hidden-listing-filter -->
+                <div class="hidden-listing-filter fl-wrap">
+                  <!-- Checkboxes -->
+                  <div class=" fl-wrap filter-tags">
+                    <h4>Filter by Tags</h4>
+                    <div class="filter-tags-wrap">
+                      <input id="check-a" type="checkbox" name="check" #wifi>
+                      <label for="check-a">Wireless Internet</label>
+                    </div>
+                    <div class="filter-tags-wrap">
+                      <input id="check-b" type="checkbox" name="check" #kitchen>
+                      <label for="check-b">Kitchen</label>
+                    </div>
+                    <div class="filter-tags-wrap">
+                      <input id="check-c" type="checkbox" name="check" #heating>
+                      <label for="check-c">Heating</label>
+                    </div>
+                    <div class="filter-tags-wrap">
+                      <input id="check-d" type="checkbox" name="check" #elevator>
+                      <label for="check-d">Elevator</label>
+                    </div>
+                    <div class="filter-tags-wrap">
+                      <input id="check-e" type="checkbox" name="check" #parking>
+                      <label for="check-e">Parking</label>
+                    </div>
+                  </div>
+                </div>
+                <!-- hidden-listing-filter end -->
+                <button class="button fs-map-btn" (click)="update()">Update</button>
+                <div class="more-filter-option">More Filters <span></span></div>
+              </div>
+              <!-- listsearch-input-wrap end -->
+            </div>
+            <!-- list-main-wrap-->
+            <div class="list-main-wrap fl-wrap card-listing">
+              <!-- listing-item -->
+              <ngb-pagination *ngIf="hasResults" [collectionSize]="residences.length" [(page)]="page"
+                              [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+              <div *ngFor="let residence of residences | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" class="listing-item">
+                <article class="geodir-category-listing fl-wrap">
+                  <div class="geodir-category-img">
+                    <img src="assets/images/all/1.jpg" alt="">
+                    <div class="overlay"></div>
+                  </div>
+                  <div class="geodir-category-content fl-wrap">
+                    <h3><a (click)="residenceDetails(residence.residenceId)">{{residence.title}}</a></h3>
+                    <p>{{residence.description}}</p>
+                    <p>${{residence.prize}}/night</p>
+                    <div class="geodir-category-options fl-wrap">
+                      <div class="listing-rating card-popup-rainingvis" data-starrating2="5">
+                        <span>({{residence.comments.length}} reviews)</span>
+                      </div>
+                      <div class="geodir-category-location"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> {{residence.address}}</a></div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <ngb-pagination *ngIf="hasResults" [collectionSize]="residences.length" [(page)]="page"
+                              [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!--  content  end-->
+  </div>
+</div>

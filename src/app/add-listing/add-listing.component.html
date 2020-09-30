@@ -10,40 +10,35 @@
             <div class="row with-forms">
 
               <div class="col-md-6">
-<!--                <div class="form-group">-->
-                  <label for="country">Country<span style="color: red">*</span></label>
-                  <input type="text" formControlName="country" class="form-control" #country/>
-<!--                </div>-->
+                <!--                -->
+                <label for="country">Country<span style="color: red">*</span></label>
+                <input type="text" class="form-control" #country/>
+                <!--                </div>-->
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="streetname">Address<span style="color: red">*</span></label>
-                  <input type="text" formControlName="streetname" class="form-control" #streetName/>
-                </div>
+
+                <label for="streetname">Address<span style="color: red">*</span></label>
+                <input type="text" class="form-control" #streetName/>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="buildingNumber">Building Number<span style="color: red">*</span></label>
-                  <input type="number" formControlName="buildingNumber" class="form-control" #buildingNumber/>
-                </div>
+
+                <label for="buildingNumber">Building Number<span style="color: red">*</span></label>
+                <input type="number" class="form-control" #buildingNumber/>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="city">City<span style="color: red">*</span></label>
-                  <input type="text" formControlName="city" class="form-control" #city/>
-                </div>
+
+                <label for="city">City<span style="color: red">*</span></label>
+                <input type="text" class="form-control" #city/>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="state">State<span style="color: red">*</span></label>
-                  <input type="text" formControlName="state" class="form-control" #state/>
-                </div>
+
+                <label for="state">State<span style="color: red">*</span></label>
+                <input type="text" class="form-control" #state/>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="zip_code">Postal Code<span style="color: red">*</span></label>
-                  <input type="number" formControlName="zip_code" class="form-control" #zipCode/>
-                </div>
+
+                <label for="zip_code">Postal Code<span style="color: red">*</span></label>
+                <input type="number" class="form-control" #zipCode/>
               </div>
             </div>
           </div>
@@ -51,76 +46,66 @@
           <div class="submit-section">
             <div class="row with-forms">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="propertyType">Property Type<span style="color: red">*</span></label>
-                  <select class="form-control" name="property_type" required="" #propertyType>
-                    <option label=""></option>
-                    <option value="Bungalow">Bungalow</option>
-                    <option value="Cabin">Cabin</option>
-                    <option value="Mansion">Mansion</option>
-                    <option value="Flat">Flat</option>
-                  </select>
-                </div>
+
+                <label for="propertyType">Property Type<span style="color: red">*</span></label>
+                <select class="form-control" name="property_type" required="" #propertyType>
+                  <option label=""></option>
+                  <option value="Bungalow">Bungalow</option>
+                  <option value="Cabin">Cabin</option>
+                  <option value="Mansion">Mansion</option>
+                  <option value="Flat">Flat</option>
+                </select>
               </div>
 
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="guests">Guests<span style="color: red">*</span></label>
-                  <select class="form-control" name="guest_count" id="guest_count" #guests>
-                    <option label=""></option>
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guest</option>
-                    <option value="3">3 Guest</option>
-                    <option value="4">4 Guest</option>
-                    <option value="5">5 Guest</option>
-                  </select>
-                </div>
+
+                <label for="guests">Guests<span style="color: red">*</span></label>
+                <select class="form-control" name="guest_count" id="guest_count" #guests>
+                  <option label=""></option>
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guest</option>
+                  <option value="3">3 Guest</option>
+                  <option value="4">4 Guest</option>
+                  <option value="5">5 Guest</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+
+                <label for="bathrooms">How many Bathrooms :<span style="color: red">*</span></label>
+                <select class="form-control" id="bathrooms" name="bathroom_count" #bathrooms>
+                  <option>Select Bathrooms</option>
+                  <option value="1">1 Bathrooms</option>
+                  <option value="2">2 Bathrooms</option>
+                  <option value="3">3 Bathrooms</option>
+                </select>
               </div>
 
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="roomType">Room Type<span style="color: red">*</span></label>
-                  <select class="form-control" name="room_type" #roomType>
-                    <option label="" selected=""></option>
-                    <option value="Shared Room">Shared Room</option>
-                    <option value="Single Room">Single Room</option>
-                  </select>
-                </div>
+                <label for="propertySize">Property Size in ft <span style="color: red">*</span></label>
+                <input type="text" class="form-control" #propertySize/>
               </div>
 
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="bathrooms">How many Bathrooms :<span style="color: red">*</span></label>
-                  <select class="form-control" id="bathrooms" name="bathroom_count" #bathrooms>
-                    <option>Select Bathrooms</option>
-                    <option value="1">1 Bathrooms</option>
-                    <option value="1.5">1.5 Bathrooms</option>
-                    <option value="2">2 Bathrooms</option>
-                    <option value="2.5">2.5 Bathrooms</option>
-                    <option value="3">3 Bathrooms</option>
-                  </select>
-                </div>
+                <label for="bedrooms">How Many Bedrooms : <span style="color: red">*</span></label>
+                <select class="form-control" id="bedrooms" name="no_of_bedrooms" #bedrooms>
+                  <option value="0">Select Bedrooms</option>
+                  <option value="1">1 Bed rooms</option>
+                  <option value="2">2 Bed rooms</option>
+                  <option value="3">3 Bed rooms</option>
+                  <option value="4">4 Bed rooms</option>
+                  <option value="5">5 Bed rooms</option>
+                </select>
               </div>
-
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="propertySize">Property Size in ft <span style="color: red">*</span></label>
-                  <input type="text" formControlName="propertySize" class="form-control" #propertySize/>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="bedrooms">How Many Bedrooms : <span style="color: red">*</span></label>
-                  <select class="form-control" id="bedrooms" name="no_of_bedrooms" #bedrooms>
-                    <option value="0">Select Bedrooms</option>
-                    <option value="1">1 Bed rooms</option>
-                    <option value="2">2 Bed rooms</option>
-                    <option value="3">3 Bed rooms</option>
-                    <option value="4">4 Bed rooms</option>
-                    <option value="5">5 Bed rooms</option>
-                  </select>
-                </div>
+                <label for="bedrooms">How Many Beds : <span style="color: red">*</span></label>
+                <select class="form-control" id="beds" name="no_of_bedrooms" #beds>
+                  <option value="0">Select Beds</option>
+                  <option value="1">1 Bed</option>
+                  <option value="2">2 Beds</option>
+                  <option value="3">3 Beds</option>
+                  <option value="4">4 Beds</option>
+                  <option value="5">5 Beds</option>
+                </select>
               </div>
             </div>
           </div>
@@ -128,10 +113,8 @@
           <div class="submit-section">
             <div class="row with-forms">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="propertySize">Property Title <span style="color: red">*</span></label>
-                  <textarea class="form-control" id="propertyTitle" rows="3" #propertyTitle></textarea>
-                </div>
+                <label for="propertySize">Property Title <span style="color: red">*</span></label>
+                <textarea class="form-control" id="propertyTitle" rows="3" #propertyTitle></textarea>
               </div>
               <div class="col-md-6">
                 <label for="description">Description <span style="color: red">*</span></label>
@@ -143,23 +126,60 @@
           <div class="submit-section">
             <div class="row with-forms">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="pricing">Nightly Pricing<span style="color: red">*</span></label>
-                  <input type="text" formControlName="pricing" class="form-control" #pricing/>
-                </div>
+
+                <label for="pricing">Nightly Pricing<span style="color: red">*</span></label>
+                <input type="text" class="form-control" #pricing/>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="arrivalDate">Check In<span style="color: red">*</span></label>
-                  <input class="form-control" type="text" name="from_date" [(ngModel)]="arrivalDate"
-                         bsDatepicker placeholder="Check in" #from_date>
-                </div>
+                <label for="arrivalDate">Available from<span style="color: red">*</span></label>
+                <input class="form-control" type="text" name="from_date" [(ngModel)]="arrivalDate"
+                       bsDatepicker placeholder="Available from" #from_date>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label for="departureDate">Check Out<span style="color: red">*</span></label>
-                  <input class="form-control" type="text" name="to_date" [(ngModel)]="departureDate"
-                         bsDatepicker placeholder="Check out" #to_date>
+                <label for="departureDate">Available to<span style="color: red">*</span></label>
+                <input class="form-control" type="text" name="to_date" [(ngModel)]="departureDate"
+                       bsDatepicker placeholder="Available to" #to_date>
+              </div>
+            </div>
+          </div>
+          <h3>Amenities and Features</h3>
+          <div class="submit-section">
+            <!-- Checkboxes -->
+            <h5 style="float: left"><b>Select the amenities and features that apply for your property</b></h5>
+            <div class="checkboxes in-row margin-bottom-80 margin-top-50">
+              <div class="col-md-12">
+                <div class="col-md-3">
+                  <input id="Elevator_in_Building" type="checkbox" name="amenity[]" value="off" #elevator>
+                  <label style="float: left" for="Elevator_in_Building">Elevator in Building</label>
+                </div>
+                <div class="col-md-3">
+                  <input id="Free_Parking_on_Premises" type="checkbox" name="amenity[]"
+                          #parking>
+                  <label for="Free_Parking_on_Premises">Free Parking</label>
+                </div>
+                <div class="col-md-3">
+                  <input id="Heating" type="checkbox" name="amenity[]"  #heating>
+                  <label for="Heating">Heating</label>
+                </div>
+                <div class="col-md-3">
+                  <input id="Kitchen" type="checkbox" name="amenity[]" #kitchen>
+                  <label for="Kitchen">Kitchen</label>
+                </div>
+                <div class="col-md-3">
+                  <input id="Wireless_Internet" type="checkbox" name="amenity[]"  #wifi>
+                  <label style="float: left" for="Wireless_Internet">Wireless Internet</label>
+                </div>
+                <div class="col-md-3">
+                  <h5>&nbsp;</h5>
+                </div>
+                <div class="col-md-3">
+                  <h5>&nbsp;</h5>
+                </div>
+                <div class="col-md-3">
+                  <h5>&nbsp;</h5>
+                </div>
+                <div class="col-md-3">
+                  <h5>&nbsp;</h5>
                 </div>
               </div>
             </div>
@@ -179,7 +199,14 @@
 
             </div>
           </div>
-
+          <h3>Map Location</h3>
+          <div class="submit-section">
+            <div class="row with-forms">
+              <div class="col-md-12">
+                <div id="map" class="map"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-md-3">
@@ -191,7 +218,14 @@
                            ">
 
           <div class="divider"></div>
-          <button type="submit" class="button preview margin-top-5" value="ADD LISTING" (click)="addListing()">ADD LISTING</button>
+          <button *ngIf="add" type="submit" class="button preview margin-top-5" value="ADD LISTING"
+                  (click)="addListing()">ADD
+            LISTING
+          </button>
+          <button *ngIf="!add" type="submit" class="button preview margin-top-5" value="UPDATE LISTING"
+                  (click)="updateResidence()">UPDATE
+            LISTING
+          </button>
         </div>
       </div>
     </div>

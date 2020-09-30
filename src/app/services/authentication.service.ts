@@ -4,12 +4,13 @@ import {BehaviorSubject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import {
-  AddResidenceRequestDto,
+  AddResidenceRequestDto, AddResidenceResponseDto, ReservationDto, SearchResidenceByIdDto, SearchResidenceDto,
   UserLogInRequestDto,
   UserLogInResponseDto,
   UserUpdateProfileDto,
   UserUtilsDto
 } from '../domain/airbnb-service';
+import {NavigationExtras} from '@angular/router';
 
 const headerOptions = {
   headers: new HttpHeaders()
@@ -28,6 +29,9 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<boolean>(false);
     this.currentUser = null;
+    if (JSON.parse(localStorage.getItem('currentUser')) != null) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
   }
 
   login(user) {
@@ -104,5 +108,72 @@ export class AuthenticationService {
         // to show message in the form, you can use a class variable and bind it to the template.
       }));
 
+  }
+
+  searchForResidences(search: SearchResidenceDto) {
+    console.log(search);
+    return this.http.post(`${this.apiUrl}/searchResidence`, search, headerOptions)
+      .pipe(map(residences => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        // return JSON.stringify(residences);
+        return residences;
+      }, error => {
+        console.log(error);
+        // use message in error object
+        // you can use Angular Material dialog to show message in the popup.
+        // to show message in the form, you can use a class variable and bind it to the template.
+      }));
+  }
+
+  getResidenceById(searchResidenceByIdDto: SearchResidenceByIdDto) {
+    return this.http.post(`${this.apiUrl}/searchResidenceById`, searchResidenceByIdDto, headerOptions)
+      .pipe(map(residence => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        // return JSON.stringify(residences);
+        return residence;
+      }, error => {
+        console.log(error);
+        // use message in error object
+        // you can use Angular Material dialog to show message in the popup.
+        // to show message in the form, you can use a class variable and bind it to the template.
+      }));
+  }
+
+  updateResidence(newResidence: AddResidenceResponseDto) {
+    return this.http.post(`${this.apiUrl}/updateResidence`, newResidence, headerOptions)
+      .pipe(map(residense => {
+        return JSON.stringify(residense);
+      }, error => {
+        console.log(error);
+        // use message in error object
+        // you can use Angular Material dialog to show message in the popup.
+        // to show message in the form, you can use a class variable and bind it to the template.
+      }));
+  }
+
+  makeReservation(reservationDto: ReservationDto) {
+    return this.http.post(`${this.apiUrl}/reserveResidence`, reservationDto, headerOptions)
+      .pipe(map(residense => {
+        return JSON.stringify(residense);
+      }, error => {
+        console.log(error);
+        // use message in error object
+        // you can use Angular Material dialog to show message in the popup.
+        // to show message in the form, you can use a class variable and bind it to the template.
+      }));
+  }
+
+  getRecommendedListings(userUtilsDto: UserUtilsDto) {
+    return this.http.post(`${this.apiUrl}/getRecommendedListings`, userUtilsDto, headerOptions)
+      .pipe(map(residences => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        // return JSON.stringify(residences);
+        return residences;
+      }, error => {
+        console.log(error);
+        // use message in error object
+        // you can use Angular Material dialog to show message in the popup.
+        // to show message in the form, you can use a class variable and bind it to the template.
+      }));
   }
 }

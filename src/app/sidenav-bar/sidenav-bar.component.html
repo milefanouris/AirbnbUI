@@ -1,0 +1,27 @@
+<div class="col-md-3">
+  <div class="fixed-bar fl-wrap">
+    <div class="user-profile-menu-wrap fl-wrap">
+      <!-- user-profile-menu-->
+      <div class="user-profile-menu">
+        <h3>Main</h3>
+        <ul>
+          <li><a href="/editProfile" class="user-profile-act"><i class="fa fa-user-o"></i> Edit profile</a></li>
+          <li><a href="dashboard-messages.html"><i class="fa fa-envelope-o"></i> Messages</a></li>
+        </ul>
+      </div>
+      <!-- user-profile-menu end-->
+      <!-- user-profile-menu-->
+      <div class="user-profile-menu">
+        <h3>Listings</h3>
+        <ul>
+          <li *ngIf="isHost"><a (click)="myListings()"><i class="fa fa-th-list"></i> My listigs </a></li>
+          <li *ngIf="isTenant"><a href="dashboard-bookings.html"> <i class="fa fa-calendar-check-o"></i> Bookings</a></li>
+          <li *ngIf="isHost"><a href="dashboard-review.html"><i class="fa fa-comments-o"></i> Reviews </a></li>
+        </ul>
+      </div>
+      <!-- user-profile-menu end-->
+      <button class="log-out-btn" (click)="logout()">Log Out</button>
+    </div>
+  </div>
+</div>
+

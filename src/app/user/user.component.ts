@@ -41,7 +41,7 @@ export class UserComponent implements OnInit {
     private authenticationService: AuthenticationService
   ) {
     if (this.authenticationService.currentUser) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/index']);
     }
   }
 

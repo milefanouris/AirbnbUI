@@ -1,7 +1,8 @@
 import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {NavigationExtras, Router} from '@angular/router';
-import {SearchResidenceDto} from '../domain/airbnb-service';
+import {Router} from '@angular/router';
+import {SearchResidenceByIdDto, SearchResidenceDto, UserUtilsDto} from '../domain/airbnb-service';
 import {AuthenticationService} from '../services';
+import {Data} from '../domain/Data';
 
 @Component({
   selector: 'app-home',
@@ -19,14 +20,20 @@ export class HomeComponent implements OnInit {
   @ViewChild('from_date') fromDate: ElementRef;
   @ViewChild('to_date') toDate: ElementRef;
   username: any;
+  residences: any;
+  hasResults: boolean;
 
 
   constructor(private router: Router,
-              private authenticationService: AuthenticationService) {
+              private authenticationService: AuthenticationService,
+              private data: Data) {
     this.loadScript();
+    this.hasResults = false;
     if (this.authenticationService.currentUser != null) {
       this.username = this.authenticationService.currentUser.username;
       console.log(this.authenticationService.currentUser);
+    } else {
+      this.username = 'guest';
     }
   }
 
@@ -57,6 +64,21 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    if (this.username !== 'guest') {
+      let userUtilsDto = new UserUtilsDto();
+      userUtilsDto.username = this.username;
+      this.authenticationService.getRecommendedListings(userUtilsDto).subscribe(
+        residenceResultSet => {
+          console.log(residenceResultSet);
+          this.residences = residenceResultSet;
+          if (this.residences.length > 0) {
+            this.hasResults = true;
+          }
+        },
+        error => {
+        });
+    }
   }
 
   onClick($event: any) {
@@ -69,8 +91,28 @@ export class HomeComponent implements OnInit {
     searchResidence.departureDate = this.toDate.nativeElement.value;
     searchResidence.location = this.searchAddr.nativeElement.value;
     searchResidence.capacity = this.visitors.nativeElement.value;
+    searchResidence.username = this.username;
+    searchResidence.elevator = 0;
+    searchResidence.wifi = 0;
+    searchResidence.kitchen = 0;
+    searchResidence.parking = 0;
+    searchResidence.heating = 0;
     console.log(searchResidence);
-    this.router.navigate(this.SEARCH_ROUTE, {clearHistory: true} as NavigationExtras);
+    this.data.storage = searchResidence;
+    this.router.navigate(this.SEARCH_ROUTE);
+  }
+
+  residenceDetails(residenceId: any) {
+    let search = new SearchResidenceByIdDto();
+    search.residenceId = residenceId;
+    this.authenticationService.getResidenceById(search).subscribe(
+      residence => {
+        console.log(residence);
+        this.data.storage = residence;
+        this.router.navigate(['/listing-single']);
+      },
+      error => {
+      });
 
   }
 }

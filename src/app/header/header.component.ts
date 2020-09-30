@@ -10,6 +10,7 @@ import {AuthenticationService} from '../services';
 export class HeaderComponent implements OnInit {
   isShown: any;
   username: any;
+  isHost: any;
 
   constructor(private router: Router,
               private authenticationService: AuthenticationService) {
@@ -21,6 +22,11 @@ export class HeaderComponent implements OnInit {
       }
     });
     let user = JSON.parse(localStorage.getItem('currentUser'));
+    if (this.authenticationService.currentUser.roles[0].description === 'HOST') {
+      this.isHost = true;
+    } else {
+      this.isHost = false;
+    }
     if (user != null) {
       this.isShown = true;
       this.username = user.username;
@@ -30,6 +36,37 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadScript();
   }
 
+  public loadScript() {
+    var isFound = false;
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; ++i) {
+      if (scripts[i].getAttribute('src') != null && scripts[i].getAttribute('src').includes('loader')) {
+        isFound = true;
+      }
+    }
+
+    if (!isFound) {
+      var dynamicScripts = ['../assets/js/scripts.js'];
+
+      for (var i = 0; i < dynamicScripts.length; i++) {
+        let node = document.createElement('script');
+        node.src = dynamicScripts [i];
+        node.type = 'text/javascript';
+        node.async = false;
+        node.charset = 'utf-8';
+        document.getElementsByTagName('head')[0].appendChild(node);
+      }
+
+    }
+  }
+
+
+
+  logOut() {
+    this.authenticationService.logout();
+    this.router.navigate(['/index']);
+  }
 }

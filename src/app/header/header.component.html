@@ -3,7 +3,7 @@
     <div class="logo-holder">
       <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
     </div>
-    <a href="/add-listing" class="add-list">Add Listing <span><i class="fa fa-plus"></i></span></a>
+    <a *ngIf="isHost" href="/add-listing" class="add-list">Add Listing <span><i class="fa fa-plus"></i></span></a>
     <div *ngIf="isShown" class="header-user-menu">
       <div class="header-user-name">
         <span><img src="assets/images/avatar/1.jpg" alt=""></span>
@@ -11,9 +11,7 @@
       </div>
       <ul>
         <li><a href="/editProfile"> Edit profile</a></li>
-        <li><a href="dashboard-bookings.html"> Bookings </a></li>
-        <li><a href="dashboard-review.html"> Reviews </a></li>
-        <li><a href="#">Log Out</a></li>
+        <li><a (click)="logOut()">Log Out</a></li>
       </ul>
     </div>
 
